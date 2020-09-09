@@ -1,7 +1,7 @@
 import { TestBed, async, getTestBed } from '@angular/core/testing';
 import { SpotifyService } from './spotify.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, throwError } from 'rxjs';
 
 const mockResponse = {};

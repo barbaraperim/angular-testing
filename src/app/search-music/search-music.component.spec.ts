@@ -11,8 +11,20 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Component, Input } from '@angular/core';
 
-class MockTestService {
+/**
+// mockando componente sem MockComponent
+@Component({
+  // usar mesmo seletor
+  selector: 'app-track-item',
+  template: '',
+})
+class MockTrackItemComponent {
+  @Input() trackName = '';
+}*/
+
+class MockSpotifyService {
   searchMusic(): Observable<any> { return null; }
 }
 
@@ -24,10 +36,12 @@ describe('SearchMusicComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MatInputModule, MatFormFieldModule, MatIconModule, FormsModule, BrowserAnimationsModule],
+      imports: [ MatInputModule, MatFormFieldModule, MatIconModule,
+        FormsModule, BrowserAnimationsModule],
+        //MockTrackItemComponent],
       declarations: [ SearchMusicComponent, MockComponent(TrackItemComponent) ],
       providers: [
-        { provide: SpotifyService, useClass: MockTestService }
+        { provide: SpotifyService, useClass: MockSpotifyService }
       ]
     })
     .compileComponents();
