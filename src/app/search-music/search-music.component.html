@@ -1,0 +1,16 @@
+<div class="search-music-component">
+    <form (submit)="clickAction()">
+        <mat-form-field class="track-search">
+            <mat-label>Pesquise uma música</mat-label>
+            <input class="searchInput" matInput type="text" name="search" [(ngModel)]="value">
+            <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Limpar" 
+                (click)="value=''">
+            <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+        <button class="btn" mat-raised-button type="submit"> Buscar </button>
+    </form>
+
+    <p class="error" *ngIf='errorMessage'>{{errorMessage}}</p>
+    <app-track-item *ngFor="let track of tracks" [trackName]="track.name"></app-track-item>
+</div>
